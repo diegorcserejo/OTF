@@ -1,0 +1,233 @@
+/* ===== HERO SECTION ===== */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  align-items: center;
+  margin-top: 60px;
+  gap: 30px;
+  width: 100%;
+  min-width: 0;
+}
+
+.hero-section > * {
+  min-width: 0;
+}
+
+.concept-badge {
+  background: #2b2f38;
+  color: white;
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #5c626d;
+  margin-bottom: 30px;
+}
+
+/* Stats Container */
+.stats-container-glass {
+  display: flex;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 15px 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1e2229;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #7b7f87;
+  font-weight: 500;
+}
+
+/* Centro da imagem */
+.hero-center {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35vw;
+  min-height: 450px;
+  width: 100%;
+}
+
+.hero-title {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+  font-size: 8vw;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.title-top {
+  align-self: flex-start;
+  color: #1e1e1e;
+}
+
+.title-bottom {
+  align-self: flex-end;
+  color: #222;
+}
+
+.model-container {
+  position: relative;
+  width: 22vw;
+  min-width: 280px;
+  max-width: 100%;
+  height: 32vw;
+  min-height: 380px;
+  z-index: 2;
+}
+
+.model-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 200px 200px 0 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.model-fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to top, #f3f6fa 15%, rgba(243, 246, 250, 0) 100%);
+}
+
+/* Widget Profile Detalhado */
+.hero-right {
+  z-index: 5;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.profile-widget {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.widget-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #7b7f87;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.member-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1e2229;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.member-role-tag {
+  font-size: 0.85rem;
+  color: #4a72cb;
+  background: #ccdcf9;
+  padding: 4px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.profile-details {
+  margin: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 15px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.detail-row span {
+  color: #7b7f87;
+  flex-shrink: 0;
+}
+
+.detail-row strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Barras de Atributo */
+.skills-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.skill-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.bar-bg {
+  background: rgba(0, 0, 0, 0.05);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.bar-fill {
+  background: linear-gradient(90deg, #b3c5f9, #e1bbf7);
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s ease-out;
+}

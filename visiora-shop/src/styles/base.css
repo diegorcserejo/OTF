@@ -1,0 +1,58 @@
+/* ===== BASE / VIEWPORT ===== */
+.app-viewport {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #f3f6fa;
+  color: #1e2229;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding-bottom: 100px;
+}
+
+/* Gradientes Fluidos de Fundo */
+.bg-gradient-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(234, 226, 253, 0.8) 0%, rgba(214, 230, 254, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+.bg-gradient-2 {
+  position: absolute;
+  top: 30%;
+  left: -15%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(216, 236, 248, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 4%;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.bg-text-back {
+  position: absolute;
+  top: -2vw;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 15vw;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 2vw;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
