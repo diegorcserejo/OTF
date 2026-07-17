@@ -121,7 +121,7 @@
 
       <section class="shop-section">
         <aside class="category-sidebar">
-          <h3 class="section-heading">Lineup</h3>
+          <h3 class="section-heading">Members</h3>
           <ul class="category-list">
             <li 
               v-for="member in currentData.members" 
