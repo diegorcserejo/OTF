@@ -10,6 +10,14 @@ const otfMembers: Member[] = [
   { name: 'Lune', role: 'Face, Center, Visual, Lead-dancer, Sub-vocal, Maknae', birthday: '22 de Julho', height: '167 cm', nationality: 'Korean', image: '/Lune.jpeg', stats: { Vocal: 70, Dance: 89, Rap: 40, Visual: 97 } }
 ];
 
+const lothusMembers: Member[] = [
+  { name: 'Andy', role: 'Main Vocal, Leader', birthday: '15 de Março', height: '178 cm', nationality: 'Korean', image: '/Andy.jpeg', stats: { Vocal: 97, Dance: 75, Rap: 60, Visual: 88 } },
+  { name: 'Myke', role: 'Main Rapper, Lead Vocal, Visual, Center', birthday: '22 de Junho', height: '176 cm', nationality: 'Korean', image: '/Myke.jpeg', stats: { Vocal: 85, Dance: 80, Rap: 98, Visual: 95 } },
+  { name: 'Dhi', role: 'Lead Vocal, Lead Dancer, Face', birthday: '10 de Setembro', height: '174 cm', nationality: 'Korean', image: '/Dhi.jpeg', stats: { Vocal: 88, Dance: 90, Rap: 55, Visual: 96 } },
+  { name: 'Oyvas', role: 'Main Dancer, Sub Vocal', birthday: '03 de Janeiro', height: '180 cm', nationality: 'Korean', image: '/Oyvas.jpeg', stats: { Vocal: 70, Dance: 98, Rap: 45, Visual: 82 } },
+  { name: 'Eddie', role: 'Sub Vocal, Lead Dancer, Visual, Maknae', birthday: '28 de Novembro', height: '172 cm', nationality: 'Korean', image: '/Eddie.jpeg', stats: { Vocal: 78, Dance: 92, Rap: 50, Visual: 94 } }
+];
+
 export const database: { [key: string]: GroupData } = {
   otf: {
     name: 'ONE&',
@@ -39,6 +47,37 @@ export const database: { [key: string]: GroupData } = {
         name: 'Soloists',
         description: 'Solistas oficializados da OTF que possuem lançamentos e promoções individuais ativas.',
         members: [otfMembers[3], otfMembers[4], otfMembers[1], otfMembers[6]]
+      }
+    ]
+  },
+  lothus: {
+    name: 'LOTHUS',
+    description: 'LOTHUS (Antes: Wicked Dreams). Grupo de alto conceito com performances intensas e presença de palco marcante.',
+    members: lothusMembers,
+    units: [
+      {
+        id: 'blackpethal',
+        name: 'BLACK PETHAL',
+        description: 'Sub-unit formada por Andy, Myke, Oyvas e Eddie. Foco em conceitos sombrios e poderosos.',
+        members: [lothusMembers[0], lothusMembers[1], lothusMembers[3], lothusMembers[4]]
+      },
+      {
+        id: 'mad',
+        name: 'MAD',
+        description: 'Sub-unit formada por Andy, Myke e Dhi. Energia intensa e performances explosivas.',
+        members: [lothusMembers[0], lothusMembers[1], lothusMembers[2]]
+      },
+      {
+        id: 'mayday',
+        name: 'MayDay',
+        description: 'Sub-unit formada por Andy e Myke. Dupla de alta sinergia e versatilidade.',
+        members: [lothusMembers[0], lothusMembers[1]]
+      },
+      {
+        id: 'solos',
+        name: 'Soloists',
+        description: 'Solistas oficializados da LOTHUS com lançamentos e promoções individuais ativas.',
+        members: [lothusMembers[0], lothusMembers[1], lothusMembers[4]]
       }
     ]
   }

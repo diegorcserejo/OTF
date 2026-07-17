@@ -1,0 +1,9 @@
+{
+  "name": "otf-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix otf run dev",
+    "build": "npm --prefix otf run build",
+    "preview": "npm --prefix otf run preview"
+  }
+}
