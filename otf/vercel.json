@@ -1,0 +1,6 @@
+{
+  "buildCommand": "node node_modules/vue-tsc/bin/vue-tsc.js -b && vite build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "vite"
+}
