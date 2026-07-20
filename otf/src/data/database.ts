@@ -15,7 +15,7 @@ const lothusMembers: Member[] = [
   { name: 'Myke', role: 'Main Rapper, Lead Vocal, Visual, Center', birthday: '22 de Junho', height: '176 cm', nationality: 'Korean', image: '/Myke.jpeg', stats: { Vocal: 85, Dance: 80, Rap: 98, Visual: 95 } },
   { name: 'Dhi', role: 'Lead Vocal, Lead Dancer, Face', birthday: '10 de Setembro', height: '174 cm', nationality: 'Korean', image: '/Dhi.jpeg', stats: { Vocal: 88, Dance: 90, Rap: 55, Visual: 96 } },
   { name: 'Oyvas', role: 'Main Dancer, Sub Vocal', birthday: '03 de Janeiro', height: '180 cm', nationality: 'Korean', image: '/Oyvas.jpeg', stats: { Vocal: 70, Dance: 98, Rap: 45, Visual: 82 } },
-  { name: 'Eddie', role: 'Sub Vocal, Lead Dancer, Visual, Maknae', birthday: '28 de Novembro', height: '172 cm', nationality: 'Korean', image: '/Eddie.jpeg', stats: { Vocal: 78, Dance: 92, Rap: 50, Visual: 94 } }
+  { name: 'Eddie', role: 'Lead Dancer, Sub Vocal, Visual, Maknae', birthday: '28 de Novembro', height: '172 cm', nationality: 'Korean', image: '/Eddie.jpeg', stats: { Vocal: 78, Dance: 92, Rap: 50, Visual: 94 } }
 ];
 
 export const database: { [key: string]: GroupData } = {
