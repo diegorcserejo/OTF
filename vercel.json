@@ -1,6 +1,6 @@
 {
-  "rootDirectory": "otf",
-  "buildCommand": "node node_modules/vue-tsc/bin/vue-tsc.js -b && vite build",
-  "outputDirectory": "dist",
+  "buildCommand": "cd otf && node node_modules/vue-tsc/bin/vue-tsc.js -b && npx vite build",
+  "outputDirectory": "otf/dist",
+  "installCommand": "cd otf && npm install",
   "framework": "vite"
 }
