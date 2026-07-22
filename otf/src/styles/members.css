@@ -2,13 +2,10 @@
 .shop-section {
   display: grid;
   grid-template-columns: 280px 1fr;
-  gap: 50px;
+  gap: 32px;
   width: 100%;
   min-width: 0;
-}
-
-.shop-section > * {
-  min-width: 0;
+  margin-top: 20px;
 }
 
 .category-sidebar {
@@ -16,92 +13,113 @@
 }
 
 .section-heading {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 700;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .category-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
+/* Item da lista na sidebar */
 .category-item {
-  padding: 14px 20px;
+  padding: 10px 16px;
   border-radius: 16px;
-  margin-bottom: 8px;
   cursor: pointer;
-  font-size: 1rem;
-  color: #5c626d;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.25s;
-  gap: 8px;
+  transition: all 0.25s ease;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+}
+
+.category-item-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.member-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .category-item:hover,
 .category-item.active {
-  background: white;
-  color: #000;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-}
-
-.category-item span:first-child {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .badge-role {
   font-size: 0.75rem;
-  color: #8a909a;
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 500;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: 8px;
   flex-shrink: 0;
 }
 
+/* Grid de Cards */
 .products-grid-wrapper {
   min-width: 0;
   width: 100%;
-  overflow: hidden;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
   width: 100%;
   box-sizing: border-box;
 }
 
+/* Estilo do Card Glassmorphism Refinado */
 .glass-card {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-radius: 28px;
-  padding: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 14px;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  min-width: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.glass-card:hover,
-.glass-card.selected-card {
+.glass-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .glass-card.selected-card {
-  border-color: rgba(179, 197, 249, 0.8);
-  background: rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
 }
 
+/* Container e Imagem do Card */
 .product-image-container {
   background: linear-gradient(135deg, #eef3fa, #f4effa);
-  border-radius: 20px;
-  height: 260px;
+  border-radius: 18px;
+  height: 220px;
   overflow: hidden;
   width: 100%;
 }
@@ -110,52 +128,63 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
+  object-position: center 20%;
+  transition: transform 0.4s ease;
 }
 
 .glass-card:hover .card-member-img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
+/* Informações do Membro */
 .product-info {
-  margin-top: 14px;
+  margin-top: 12px;
   text-align: center;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .product-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: 0 0 4px 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  color: #fff;
 }
 
 .role-text {
-  font-size: 0.85rem;
-  color: #7b7f87;
-  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 12px 0;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
+/* Botão do Card */
 .card-actions {
-  margin-top: 14px;
+  margin-top: auto;
 }
 
 .btn-primary {
   width: 100%;
-  color: white;
+  color: #fff;
   border: none;
   padding: 10px 0;
   border-radius: 14px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .gradient-purple {
-  background: linear-gradient(90deg, #b3c5f9, #e1bbf7);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
 }
