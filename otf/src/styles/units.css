@@ -53,3 +53,34 @@
   color: white;
   border-color: rgba(255, 255, 255, 0.3);
 }
+
+/* ===== MEMBER TABS (Current / Ex-members) ===== */
+.member-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.member-tab-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  flex: 1;
+}
+
+.member-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.member-tab-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+}

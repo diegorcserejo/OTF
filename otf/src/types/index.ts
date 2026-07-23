@@ -19,5 +19,6 @@ export interface GroupData {
   name: string;
   description: string;
   members: Member[];
+  exMembers?: Member[];
   units?: Unit[];
 }

@@ -192,7 +192,7 @@
       <section class="shop-section">
       <!-- Sidebar dos Membros -->
       <aside class="category-sidebar">
-        <h3 class="section-heading">Members</h3>
+        <h3 class="section-heading">MEMBERS</h3>
         <ul class="category-list">
           <li 
             v-for="member in currentData.members" 
@@ -208,6 +208,24 @@
             <span class="badge-role">{{ member.role.split(',')[0] }}</span>
           </li>
         </ul>
+        <div v-if="database[activeGroup].exMembers" style="margin-top: 20px;">
+          <h3 class="section-heading">EX-MEMBERS</h3>
+          <ul class="category-list">
+            <li 
+              v-for="member in sortedExMembers" 
+              :key="member.name"
+              class="category-item"
+              :class="{ 'active': selectedMember.name === member.name }"
+              @click="selectedMember = member"
+            >
+              <div class="category-item-info">
+                <img :src="member.image" :alt="member.name" class="member-avatar" />
+                <span>{{ member.name }}</span>
+              </div>
+              <span class="badge-role">{{ member.role.split(',')[0] }}</span>
+            </li>
+          </ul>
+        </div>
       </aside>
 
       <!-- Grid de Cards de Membros -->
@@ -215,6 +233,28 @@
         <div class="products-grid">
           <div 
             v-for="member in currentData.members" 
+            :key="member.name"
+            class="product-card glass-card"
+            :class="{ 'selected-card': selectedMember.name === member.name }"
+            @click="selectedMember = member"
+          >
+            <div class="product-image-container">
+              <img :src="member.image" :alt="member.name" class="card-member-img" />
+            </div>
+            
+            <div class="product-info">
+              <h4 class="product-title">{{ member.name }}</h4>
+              <p class="role-text" :title="member.role">{{ member.role }}</p>
+              
+              <div class="card-actions">
+                <button class="btn-primary gradient-purple">View Full Bio</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div v-if="database[activeGroup].exMembers" class="products-grid" style="margin-top: 20px;">
+          <div 
+            v-for="member in sortedExMembers" 
             :key="member.name"
             class="product-card glass-card"
             :class="{ 'selected-card': selectedMember.name === member.name }"
@@ -255,6 +295,12 @@ const searchQuery = ref('');
 const showFavorites = ref(false);
 const profileMenuOpen = ref(false);
 const searchInput = ref<HTMLInputElement | null>(null);
+
+const sortedExMembers = computed(() => {
+  const group = database[activeGroup.value];
+  if (!group.exMembers) return [];
+  return [...group.exMembers].sort((a, b) => a.name.localeCompare(b.name));
+});
 
 const switchGroup = (groupKey: string) => {
   activeGroup.value = groupKey;
