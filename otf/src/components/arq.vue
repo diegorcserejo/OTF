@@ -316,7 +316,10 @@ const MEMBER_COLORS: Record<string, string> = {
 };
 
 function setDefaultColors() {
-  appStyle.value = { backgroundColor: '#121824' };
+  appStyle.value = { 
+    background: 'linear-gradient(135deg, #d3a5a4, #407bd7)',
+    minHeight: '100vh'
+  };
 }
 
 function setMemberColors(name: string) {
