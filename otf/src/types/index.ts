@@ -19,6 +19,9 @@ export interface Unit {
 export interface GroupData {
   name: string;
   description: string;
+  image: string;
+  debutDate: string;
+  debutSong: string;
   members: Member[];
   exMembers?: Member[];
   units?: Unit[];

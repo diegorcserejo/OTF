@@ -19,7 +19,7 @@ const lothusMembers: Member[] = [
 ];
 
 const prettysinMembers: Member[] = [
-  { name: 'Lui', role: 'Leader, Center, Main Vocal, Visual, Face, Main Rapper, Main Dancer', birthday: '15 de Março', height: '178 cm', sign: 'Peixes', nationality: 'Korean', image: '/Lui.jpg', stats: { Vocal: 98, Dance: 96, Rap: 95, Visual: 99 } }
+  { name: 'Lui', role: 'Leader, Center, Main Vocal, Visual, Face, Main Rapper, Main Dancer', birthday: '15 de Março', height: '178 cm', sign: 'Peixes', nationality: 'Korean', image: '/Lui.jpeg', stats: { Vocal: 98, Dance: 96, Rap: 95, Visual: 99 } }
 ];
 
 const prettysinExMembers: Member[] = [
@@ -37,37 +37,43 @@ export const database: { [key: string]: GroupData } = {
   otf: {
     name: 'ONE&',
     description: 'ONE& (Antes: One & Four e One & Five) — Um grupo de alta performance focado em conceitos futuristas e narrativas profundas.',
+    image: '/One&.png',
+    debutDate: '15 de Novembro de 2020',
+    debutSong: 'Eung Eung (%%)',
     members: oneAndMembers,
     units: [
       {
         id: 'overlap',
         name: 'overl4p',
         description: 'Sub-unit focada em quebras de ritmo e misturas conceituais complexas.',
-        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[4], oneAndMembers[6]]
-      }, 
+        members: [oneAndMembers[4], oneAndMembers[6], oneAndMembers[0], oneAndMembers[1]]
+      },
       {
         id: 'lethal',
         name: 'LETHAL VIP&RS',
         description: 'Sub-unit com o conceito mais maduro, agressivo e impactante do grupo.',
-        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[3], oneAndMembers[5], oneAndMembers[6]]
-      }, 
+        members: [oneAndMembers[1], oneAndMembers[3], oneAndMembers[6], oneAndMembers[0], oneAndMembers[5]]
+      },
       {
         id: 'cabigy',
         name: 'CABIGY',
         description: 'Formada por Cauy, Biel e Iggy. Antiga sub-unit conhecida como ONE& RAINBOW DASH.',
-        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[3]]
+        members: [oneAndMembers[1], oneAndMembers[0], oneAndMembers[3]]
       },
       {
         id: 'solos',
         name: 'Soloists',
         description: 'Solistas oficializados da OTF que possuem lançamentos e promoções individuais ativas.',
-        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[3], oneAndMembers[5]]
+        members: [oneAndMembers[3], oneAndMembers[4], oneAndMembers[1], oneAndMembers[5]]
       }
     ]
   },
   lothus: {
     name: 'LOTHUS',
     description: 'LOTHUS (Antes: Wicked Dreams) — Grupo de alto conceito com performances intensas e presença de palco marcante.',
+    image: '/Lothus.png',
+    debutDate: '10 de Junho de 2023',
+    debutSong: 'Black',
     members: lothusMembers,
     units: [
       {
@@ -99,6 +105,9 @@ export const database: { [key: string]: GroupData } = {
   prettysin: {
     name: 'PRETTYSIN',
     description: 'PRETTYSIN — Grupo visual e performático com conceito refinado e presença marcante.',
+    image: '/Prettysin.jpeg',
+    debutDate: '18 de Novembro de 2020',
+    debutSong: 'Oh! my mistake',
     members: prettysinMembers,
     exMembers: prettysinExMembers,
     units: [

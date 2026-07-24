@@ -1,14 +1,15 @@
 /* ===== BASE / VIEWPORT ===== */
 .app-viewport {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #3a67a7;
-  color: #f1f5f9;
+  background-color: var(--bg-color-main, #121824);
+  color: var(--text-primary, #f1f5f9);
   min-height: 100vh;
   width: 100vw;
   position: relative;
   overflow-x: hidden;
   box-sizing: border-box;
   padding-bottom: 100px;
+  transition: background-color 0.5s ease, color 0.3s ease;
 }
 
 .bg-gradient-1 {
@@ -17,9 +18,10 @@
   right: -5%;
   width: 70vw;
   height: 70vw;
-  background: radial-gradient(circle, rgba(58, 103, 167, 0.6) 0%, rgba(58, 103, 167, 0) 70%);
+  background: var(--bg-gradient-1, radial-gradient(circle, rgba(40, 54, 85, 0.35) 0%, rgba(18, 24, 36, 0) 70%));
   z-index: 0;
   pointer-events: none;
+  transition: background 0.5s ease;
 }
 .bg-gradient-2 {
   position: absolute;
@@ -27,9 +29,10 @@
   left: -15%;
   width: 60vw;
   height: 60vw;
-  background: radial-gradient(circle, rgba(45, 85, 145, 0.7) 0%, rgba(58, 103, 167, 0) 70%);
+  background: var(--bg-gradient-2, radial-gradient(circle, rgba(30, 42, 68, 0.3) 0%, rgba(18, 24, 36, 0) 70%));
   z-index: 0;
   pointer-events: none;
+  transition: background 0.5s ease;
 }
 
 .main-container {
@@ -49,9 +52,10 @@
   transform: translateX(-50%);
   font-size: 15vw;
   font-weight: 800;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-back-color, rgba(255, 255, 255, 0.025));
   letter-spacing: 2vw;
   z-index: -1;
   pointer-events: none;
   user-select: none;
+  transition: color 0.5s ease;
 }

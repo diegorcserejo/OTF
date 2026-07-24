@@ -1,5 +1,5 @@
 <template>
-  <div class="app-viewport">
+  <div class="app-viewport" :style="appStyle">
     <div class="bg-gradient-1"></div>
     <div class="bg-gradient-2"></div>
 
@@ -49,11 +49,9 @@
                 <strong>{{ selectedMember.name }}</strong>
                 <span>{{ selectedMember.role.split(',')[0] }}</span>
               </div>
-              <!-- View Profile: Fecha o menu e rola suavemente até as informações do perfil -->
               <div class="profile-menu-item" @click="scrollToSection('profile-section')">
                 <i class="fa-regular fa-id-card"></i> View Profile
               </div>
-              <!-- Browse Groups: Reseta filtros e rola suavemente até as sub-units -->
               <div class="profile-menu-item" @click="scrollToSection('units-section'); activeGroup = 'otf'; activeUnit = 'all'">
                 <i class="fa-regular fa-users"></i> Browse Groups
               </div>
@@ -72,10 +70,8 @@
         </div>
       </nav>
 
-      <!-- Overlay para fechar menus ao clicar fora -->
       <div class="overlay-backdrop" v-if="profileMenuOpen || searchOpen" @click="profileMenuOpen = false; searchOpen = false"></div>
 
-      <!-- Modal de Busca -->
       <div class="search-overlay" v-if="searchOpen" @click.self="searchOpen = false">
         <div class="search-modal">
           <div class="search-input-wrapper">
@@ -133,14 +129,22 @@
 
         <div class="hero-center animate-fade-in">
           <div class="model-container">
-            <img :src="selectedMember.image" :alt="selectedMember.name" class="model-img" />
+            <img :src="heroImage" :alt="heroTitle" class="model-img" />
             <div class="model-fade-bottom"></div>
           </div>
         </div>
 
-        <!-- Adicionado ID id="profile-section" para scroll -->
         <div id="profile-section" class="hero-right animate-slide-left">
-          <div class="glass-widget profile-widget">
+          <div v-if="activeUnit === 'all' && !memberSelected" class="glass-widget profile-widget">
+            <span class="widget-tag">GROUP INFO</span>
+            <h2 class="member-name">{{ currentGroupData.name }}</h2>
+            
+            <div class="profile-details">
+              <div class="detail-row"><span>Debut:</span> <strong>{{ currentGroupData.debutDate }}</strong></div>
+              <div class="detail-row"><span>Debut Song:</span> <strong>{{ currentGroupData.debutSong }}</strong></div>
+            </div>
+          </div>
+          <div v-else class="glass-widget profile-widget">
             <span class="widget-tag">MEMBER PROFILE</span>
             <h2 class="member-name">{{ selectedMember.name }}</h2>
             <span class="member-role-tag">{{ selectedMember.role }}</span>
@@ -165,7 +169,6 @@
         </div>
       </header>
 
-      <!-- Adicionado ID id="units-section" para scroll -->
       <section id="units-section" class="units-section-container" v-if="database[activeGroup].units">
         <div class="glass-search-bar">
           <h2 class="search-title">Explore Sub-Units</h2>
@@ -173,7 +176,7 @@
             <button 
               class="unit-tab-btn" 
               :class="{ active: activeUnit === 'all' }"
-              @click="activeUnit = 'all'"
+              @click="selectFullGroup"
             >
               Full Group
             </button>
@@ -182,7 +185,7 @@
               :key="unit.id"
               class="unit-tab-btn" 
               :class="{ active: activeUnit === unit.id }"
-              @click="activeUnit = unit.id"
+              @click="selectUnit(unit.id)"
             >
               {{ unit.name }}
             </button>
@@ -191,7 +194,6 @@
       </section>
 
       <section class="shop-section">
-      <!-- Sidebar dos Membros -->
       <aside class="category-sidebar">
         <h3 class="section-heading">MEMBERS</h3>
         <ul class="category-list">
@@ -200,7 +202,7 @@
             :key="member.name"
             class="category-item"
             :class="{ 'active': selectedMember.name === member.name }"
-            @click="selectedMember = member"
+            @click="selectMemberAction(member)"
           >
             <div class="category-item-info">
               <img :src="member.image" :alt="member.name" class="member-avatar" />
@@ -217,7 +219,7 @@
               :key="member.name"
               class="category-item"
               :class="{ 'active': selectedMember.name === member.name }"
-              @click="selectedMember = member"
+              @click="selectMemberAction(member)"
             >
               <div class="category-item-info">
                 <img :src="member.image" :alt="member.name" class="member-avatar" />
@@ -229,7 +231,6 @@
         </div>
       </aside>
 
-      <!-- Grid de Cards de Membros -->
       <div class="products-grid-wrapper">
         <div class="products-grid">
           <div 
@@ -237,7 +238,7 @@
             :key="member.name"
             class="product-card glass-card"
             :class="{ 'selected-card': selectedMember.name === member.name }"
-            @click="selectedMember = member"
+            @click="selectMemberAction(member)"
           >
             <div class="product-image-container">
               <img :src="member.image" :alt="member.name" class="card-member-img" />
@@ -259,7 +260,7 @@
             :key="member.name"
             class="product-card glass-card"
             :class="{ 'selected-card': selectedMember.name === member.name }"
-            @click="selectedMember = member"
+            @click="selectMemberAction(member)"
           >
             <div class="product-image-container">
               <img :src="member.image" :alt="member.name" class="card-member-img" />
@@ -290,12 +291,45 @@ import '../styles/main.css';
 const activeGroup = ref('otf');
 const activeUnit = ref('all');
 const selectedMember = ref<Member>(database.otf.members[0]);
+const memberSelected = ref(false);
 const mobileMenuOpen = ref(false);
 const searchOpen = ref(false);
 const searchQuery = ref('');
 const showFavorites = ref(false);
 const profileMenuOpen = ref(false);
 const searchInput = ref<HTMLInputElement | null>(null);
+
+// ===== CORES DINÂMICAS =====
+
+const appStyle = ref<Record<string, string>>({
+  backgroundColor: '#121824'
+});
+
+const MEMBER_COLORS: Record<string, string> = {
+  'Biel': '#4f80ff',
+  'Cauy': '#ff00bf',
+  'Guhan': '#1a0b8c',
+  'Iggy': '#ca3d33',
+  'Leb': '#00fff0',
+  'Luna': '#ffc700',
+  'Lune': '#9e00ff'
+};
+
+function setDefaultColors() {
+  appStyle.value = { backgroundColor: '#121824' };
+}
+
+function setMemberColors(name: string) {
+  if (MEMBER_COLORS[name]) {
+    appStyle.value = { backgroundColor: MEMBER_COLORS[name] };
+  } else {
+    setDefaultColors();
+  }
+}
+
+setDefaultColors();
+
+// ===== FUNÇÕES =====
 
 const sortedExMembers = computed(() => {
   const group = database[activeGroup.value];
@@ -306,12 +340,18 @@ const sortedExMembers = computed(() => {
 const switchGroup = (groupKey: string) => {
   activeGroup.value = groupKey;
   activeUnit.value = 'all';
-  selectedMember.value = database[groupKey].members[0];
+  memberSelected.value = false;
+  setDefaultColors();
+  if (database[groupKey].members.length > 0) {
+    selectedMember.value = database[groupKey].members[0];
+  }
 };
 
 const selectMember = (member: Member) => {
   selectedMember.value = member;
   activeUnit.value = 'all';
+  memberSelected.value = true;
+  setMemberColors(member.name);
 
   for (const [key, group] of Object.entries(database)) {
     if (group.members.some(m => m.name === member.name)) {
@@ -321,7 +361,34 @@ const selectMember = (member: Member) => {
   }
 };
 
-// Função para rolar suavemente até a seção desejada
+const selectFullGroup = () => {
+  activeUnit.value = 'all';
+  memberSelected.value = false;
+  setDefaultColors();
+  if (database[activeGroup.value].members.length > 0) {
+    selectedMember.value = database[activeGroup.value].members[0];
+  }
+};
+
+const selectUnit = (unitId: string) => {
+  activeUnit.value = unitId;
+  memberSelected.value = false;
+  setDefaultColors();
+  const group = database[activeGroup.value];
+  if (group.units) {
+    const unit = group.units.find(u => u.id === unitId);
+    if (unit && unit.members.length > 0) {
+      selectedMember.value = unit.members[0];
+    }
+  }
+};
+
+const selectMemberAction = (member: Member) => {
+  selectedMember.value = member;
+  memberSelected.value = true;
+  setMemberColors(member.name);
+};
+
 const scrollToSection = (sectionId: string) => {
   profileMenuOpen.value = false;
 
@@ -350,6 +417,24 @@ const filteredMembers = computed(() => {
     }
   }
   return results;
+});
+
+const currentGroupData = computed(() => {
+  return database[activeGroup.value];
+});
+
+const heroImage = computed(() => {
+  if (activeUnit.value === 'all' && !memberSelected.value) {
+    return currentGroupData.value.image || selectedMember.value.image;
+  }
+  return selectedMember.value.image;
+});
+
+const heroTitle = computed(() => {
+  if (activeUnit.value === 'all' && !memberSelected.value) {
+    return currentGroupData.value.name;
+  }
+  return selectedMember.value.name;
 });
 
 const currentBackgroundText = computed(() => {
