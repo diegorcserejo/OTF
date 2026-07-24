@@ -124,6 +124,10 @@
               <span class="stat-value">{{ 'units' in currentData && currentData.units ? currentData.units.length : 1 }}</span>
               <span class="stat-label">Units</span>
             </div>
+            <div class="stat-box">
+              <span class="stat-value">{{ 'exMembers' in currentData && currentData.exMembers ? currentData.exMembers.length : 0 }}</span>
+              <span class="stat-label">Ex-Members</span>
+            </div>
           </div>
         </div>
 
@@ -315,9 +319,19 @@ const MEMBER_COLORS: Record<string, string> = {
   'Lune': '#9e00ff'
 };
 
+const GROUP_GRADIENTS: Record<string, string> = {
+  'otf': 'linear-gradient(135deg, #d3a5a4, #407bd7)',
+  'lothus': 'linear-gradient(135deg, #018EBF, #2BB3C2, #4EB1B8)',
+  'prettysin': 'linear-gradient(135deg, #F05166, #FCCB0A, #B5D610)'
+};
+
+function getCurrentGradient(): string {
+  return GROUP_GRADIENTS[activeGroup.value] || GROUP_GRADIENTS['otf'];
+}
+
 function setDefaultColors() {
   appStyle.value = { 
-    background: 'linear-gradient(135deg, #d3a5a4, #407bd7)',
+    background: getCurrentGradient(),
     minHeight: '100vh'
   };
 }

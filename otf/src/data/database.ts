@@ -71,9 +71,9 @@ export const database: { [key: string]: GroupData } = {
   lothus: {
     name: 'LOTHUS',
     description: 'LOTHUS (Antes: Wicked Dreams) — Grupo de alto conceito com performances intensas e presença de palco marcante.',
-    image: '/Lothus.png',
-    debutDate: '10 de Junho de 2023',
-    debutSong: 'Black',
+    image: '/Lothus3.jpg',
+    debutDate: '20 de Novembro de 2020',
+    debutSong: 'Love Shot',
     members: lothusMembers,
     units: [
       {
