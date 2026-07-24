@@ -148,6 +148,7 @@
             <div class="profile-details">
               <div class="detail-row"><span>Born:</span> <strong>{{ selectedMember.birthday }}</strong></div>
               <div class="detail-row"><span>Height:</span> <strong>{{ selectedMember.height }}</strong></div>
+              <div class="detail-row"><span>Sign:</span> <strong>{{ selectedMember.sign }}</strong></div>
               <div class="detail-row"><span>Nationality:</span> <strong>{{ selectedMember.nationality }}</strong></div>
             </div>
 

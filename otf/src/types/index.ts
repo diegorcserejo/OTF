@@ -3,6 +3,7 @@ export interface Member {
   role: string;
   birthday: string;
   height: string;
+  sign: string;
   nationality: string;
   image: string;
   stats: { [key: string]: number };
