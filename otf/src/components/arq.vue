@@ -112,7 +112,7 @@
       <header class="hero-section">
         <div class="hero-left animate-slide-right">
           <div class="concept-badge">ACTIVE CONCEPT</div>
-          <p class="hero-subtitle">
+          <p class="hero-subtitle" style="color: white !important">
             {{ currentData.description }}
           </p>
           <div class="stats-container-glass">
