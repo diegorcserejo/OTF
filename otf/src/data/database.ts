@@ -43,25 +43,25 @@ export const database: { [key: string]: GroupData } = {
         id: 'overlap',
         name: 'overl4p',
         description: 'Sub-unit focada em quebras de ritmo e misturas conceituais complexas.',
-        members: [oneAndMembers[4], oneAndMembers[6], oneAndMembers[0], oneAndMembers[1]]
-      },
+        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[4], oneAndMembers[6]]
+      }, 
       {
         id: 'lethal',
         name: 'LETHAL VIP&RS',
         description: 'Sub-unit com o conceito mais maduro, agressivo e impactante do grupo.',
-        members: [oneAndMembers[1], oneAndMembers[3], oneAndMembers[6], oneAndMembers[0], oneAndMembers[5]]
-      },
+        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[3], oneAndMembers[5], oneAndMembers[6]]
+      }, 
       {
         id: 'cabigy',
         name: 'CABIGY',
         description: 'Formada por Cauy, Biel e Iggy. Antiga sub-unit conhecida como ONE& RAINBOW DASH.',
-        members: [oneAndMembers[1], oneAndMembers[0], oneAndMembers[3]]
+        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[3]]
       },
       {
         id: 'solos',
         name: 'Soloists',
         description: 'Solistas oficializados da OTF que possuem lançamentos e promoções individuais ativas.',
-        members: [oneAndMembers[3], oneAndMembers[4], oneAndMembers[1], oneAndMembers[5]]
+        members: [oneAndMembers[0], oneAndMembers[1], oneAndMembers[3], oneAndMembers[5]]
       }
     ]
   },
